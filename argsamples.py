@@ -33,7 +33,7 @@ class CardNumberValidation(HoleArgs):
     def __call__(self) -> list[str]:
         return [
             " ".join(str(random.randint(0, 9999)).zfill(4) for _ in range(4))
-            for _ in range(10)
+            for _ in range(106)
         ]
 
 
@@ -219,7 +219,7 @@ class PangramGrep(HoleArgs):
 
     def __call__(self) -> list[str]:
         random.shuffle(self.allargs)
-        return self.allargs[:10]
+        return self.allargs
 
 
 class ReversePolishNotation(HoleArgs):
@@ -309,5 +309,5 @@ class ArgProvider:
 
 
 if __name__ == "__main__":
-    args = ArgProvider(seed=None)("zodiac_signs")
+    args = ArgProvider(seed=None)("Zodiac Signs")
     print(args)
