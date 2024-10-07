@@ -9,6 +9,7 @@
 - Emojify
 - Forsyth-Edwards Notation
 - Hexdump
+- ISBN
 - Morse Encoder
 - Pangram Grep
 - Reverse Polish Notation
@@ -23,3 +24,4 @@ print(args)
 
 >>> ['11-23 22:34', '05-29 15:44', '10-21 09:38', '12-11 17:40', ...]
 ```
+the list of arguments can then be used in subprocess.run()

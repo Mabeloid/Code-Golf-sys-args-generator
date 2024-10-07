@@ -148,6 +148,21 @@ hexadecimal."""
         return self.allargs
 
 
+class ISBN(HoleArgs):
+    name = "isbn"
+
+    @staticmethod
+    def gen_isbn() -> str:
+        digits = list(str(random.randint(0, 999_999_999)).zfill(9))
+        digits.insert(1, "-")
+        digits.insert(random.randint(5, 9), "-")
+        digits.append("-")
+        return "".join(digits)
+
+    def __call__(self) -> Any:
+        return [self.gen_isbn() for _ in range(100)]
+
+
 class MorseEncoder(HoleArgs):
     name = "morse_encoder"
     nums_alphs = ["0123456789", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
@@ -278,7 +293,7 @@ class ZodiacSigns(HoleArgs):
                 datetime.datetime.fromtimestamp(
                     random.randint(63068400, 94690800 - 1)))[5:-3]
             for _ in range(620)
-        ]
+        ][:10]
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -309,5 +324,5 @@ class ArgProvider:
 
 
 if __name__ == "__main__":
-    args = ArgProvider(seed=None)("Zodiac Signs")
+    args = ArgProvider(seed=None)("ISBN")
     print(args)
