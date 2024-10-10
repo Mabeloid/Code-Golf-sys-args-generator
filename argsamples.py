@@ -163,6 +163,17 @@ class ISBN(HoleArgs):
         return [self.gen_isbn() for _ in range(100)]
 
 
+class JacobiSymbol(HoleArgs):
+    name = "jacobi_symbol"
+
+    def __call__(self) -> Any:
+        A = [*range(10)] + [random.randint(10, 2**50) for _ in range(186)]
+        random.shuffle(A)
+        N = [2 * a + 1 for a in A]
+        random.shuffle(N)
+        return [f"{a} {n}" for a, n in zip(A, N)]
+
+
 class MorseEncoder(HoleArgs):
     name = "morse_encoder"
     nums_alphs = ["0123456789", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
@@ -324,5 +335,5 @@ class ArgProvider:
 
 
 if __name__ == "__main__":
-    args = ArgProvider(seed=None)("ISBN")
+    args = ArgProvider(seed=None)("jacobi_symbol")
     print(args)

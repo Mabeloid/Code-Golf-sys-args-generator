@@ -10,6 +10,7 @@
 - Forsyth-Edwards Notation
 - Hexdump
 - ISBN
+- Jacobi Symbol
 - Morse Encoder
 - Pangram Grep
 - Reverse Polish Notation
