@@ -288,6 +288,17 @@ class RockPaperScissorsSpockLizard(HoleArgs):
         return self.allargs
 
 
+class ROT13(HoleArgs):
+    name = "rot13"
+
+    def __call__(self) -> list[str]:
+        return [
+            "".join(
+                chr(random.randint(32, 126))
+                for _ in range(random.randint(25, 100))) for _ in range(100)
+        ]
+
+
 class SevenSegment(HoleArgs):
     name = "seven_segment"
 
